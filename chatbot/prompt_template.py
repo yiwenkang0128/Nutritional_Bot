@@ -1,11 +1,46 @@
-# chatbot/prompt_template.py
-def get_prompt(risk_score: float, user_data: dict, recipes: list[str]) -> str:
-    return f"""
-你是一位专业营养师，请根据以下健康数据和风险评分，给出风险解释及饮食建议：
+def get_prompt_for_recipe() -> str:
+    return 
+"""
+You are a food assistant.
 
-健康数据：{user_data}
-风险评分：{risk_score:.2f}
-推荐食谱：{recipes}
+Based on the user's input in natural language, infer their level of preference for the following ingredient categories.
 
-请用简洁自然的语言向用户解释他们的风险，并推荐饮食调整建议。
+Available categories:
+- oil_fat  
+- dairy  
+- fruit  
+- carbohydrate  
+- sweetener  
+- processed  
+- legume  
+- vegetable  
+- leafy_vegetable  
+- seafood  
+- high_protein  
+- herb_spice  
+- meat
+
+Instructions:
+- Carefully analyze the user's statement.
+- For each category, assign a score from **-5 to +5**:
+  - **+5** means the user strongly prefers this category.
+  - **0** means neutral or no clear preference.
+  - **-5** means the user strongly avoids this category.
+- Provide a JSON-style response containing:
+  1. The original user input
+  2. A dictionary of category scores (only include relevant categories, or return all with scores)
+  3. A brief explanation of your reasoning
+
+Format your response like this:
+
+{
+  "user_input": "...",
+  "category_scores": {
+    "fruit": 2,
+    "meat": -3,
+    ...
+  },
+  "reasoning": "..."
+}
+
 """

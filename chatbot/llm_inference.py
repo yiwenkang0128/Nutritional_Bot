@@ -1,26 +1,30 @@
 from openai import OpenAI
-from .prompt_template import get_prompt
+from prompt_template import get_prompt_for_recipe
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
-# 初始化 DeepSeek 客户端
+# Initialize OpenAI client with your API key
 client = OpenAI(
     api_key = os.getenv("DEEPSEEK_API_KEY"), 
     base_url = "https://api.deepseek.com"
 )
 
-def call_deepseek_model(risk_score: float, user_data: dict, recipes: list[str]) -> str:
-    prompt = get_prompt(risk_score, user_data, recipes)
+def call_deepseek_model(userPrompt="I want to eat healthy and lose weight. I prefer meals that are low in carbs and high in protein.") -> str:
+    prompt = get_prompt_for_recipe()
 
     response = client.chat.completions.create(
-        model="deepseek-chat",  # 可换成 deepseek-coder 等
+        model="deepseek-chat", 
         messages=[
-            {"role": "system", "content": "你是一位营养专家，擅长为用户解读健康数据。"},
-            {"role": "user", "content": prompt}
+            {"role": "system", "content": prompt},
+            {"role": "user", "content": userPrompt},
         ],
         stream=False
     )
 
     return response.choices[0].message.content
+
+if __name__ == "__main__":
+    result = call_deepseek_model("I want MEAT! AS MORE AS POSSIBLE!")
+    print(result)

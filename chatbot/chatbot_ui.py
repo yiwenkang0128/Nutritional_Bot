@@ -58,5 +58,23 @@ with gr.Blocks() as demo:
     )
 
 
-if __name__ == "__main__":
+def main():
     demo.launch()
+
+
+'''
+现在程序的入口在最外面的main.py
+对于ml部分，在core/induce.py中
+输入只需要包括，['Pregnancies', 'Glucose', 'BMI', 'Age']，其他都会被省略。
+
+添加一个新的对话框，可以让用户自行输入对饮食的想法，
+比如“I want to eat healthy and lose weight. I prefer meals that are low in carbs and high in protein.“
+或者“I want MEAT! AS MORE AS POSSIBLE!“
+
+然后调用llm, 获得result
+然后调用MCP/utils/ParseJSON.py，将result解析成json格式，
+然后将json的result传入到MCP/utils/recipe_recommender.py中，
+在recipe_recommender.py中，
+根据用户的糖尿病指数推荐食谱，
+然后返回给UI。
+'''
