@@ -66,6 +66,7 @@ def main():
 现在程序的入口在最外面的main.py
 对于ml部分，在core/induce.py中
 输入只需要包括，['Pregnancies', 'Glucose', 'BMI', 'Age']，其他都会被省略。
+最终的预测结果是prediction_result['soft_vote']
 
 添加一个新的对话框，可以让用户自行输入对饮食的想法，
 比如“I want to eat healthy and lose weight. I prefer meals that are low in carbs and high in protein.“
