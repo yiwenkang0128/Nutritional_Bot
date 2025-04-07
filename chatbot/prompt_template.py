@@ -1,6 +1,5 @@
 def get_prompt_for_recipe() -> str:
-    return 
-"""
+    return """
 You are a food assistant.
 
 Based on the user's input in natural language, infer their level of preference for the following ingredient categories.
