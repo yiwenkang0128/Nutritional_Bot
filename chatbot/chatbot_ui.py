@@ -66,8 +66,11 @@ def handle_user_input(age, gender, height, weight, activity, pregnancies, glucos
             else:
                 steps_md = "❗ Sorry, we could not find the recipe steps."
 
-        recipe_blocks = [f"### 🍽 {title}\n\n{steps_md}" for title, steps_md in recipe_list]
-        recipe_blocks += [""] * (5 - len(recipe_blocks))  # 补空直到 5 个
+            recipe_list.append((title, steps_md))
+
+        recipe_blocks = [f"### {title}\n\n{steps_md}" for title, steps_md in recipe_list]
+        recipe_blocks += [""] * (5 - len(recipe_blocks))
+
         return summary, *recipe_blocks
 
     except Exception as e:
