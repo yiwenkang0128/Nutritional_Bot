@@ -75,3 +75,9 @@ An easy-to-use interface for non-technical users to enter data, view predictions
 - Team: Jiaxian Li, evelyn-kk
 - Date: April 21, 2025
 - Project Title: DiabetaRec: A Personalized, Diabetes-Aware Recipe Recommendation System using Machine Learning and Generative AI
+
+## dataset
+
+[Ashikan/diabetic-friendly-recipes](https://huggingface.co/datasets/Ashikan/diabetic-friendly-recipes)
+
+[Diabetes Dataset](https://www.kaggle.com/datasets/mathchi/diabetes-data-set/data)
