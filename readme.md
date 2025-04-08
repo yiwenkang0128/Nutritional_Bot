@@ -1,4 +1,4 @@
-# DiabetaRec
+# Dietary Recommendation Assistant for Diabetes Prevention
 
 ## Run this project
 
