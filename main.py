@@ -1,5 +1,5 @@
 # main.py
-from chatbot.chatbot_ui import main
+from chatbot.chatbot_ui import run_demo
 
 if __name__ == "__main__":
-    main()
+    run_demo()

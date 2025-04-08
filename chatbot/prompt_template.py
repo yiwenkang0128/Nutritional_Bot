@@ -42,4 +42,6 @@ Format your response like this:
   "reasoning": "..."
 }
 
+but do not include the "``` json" in your response.
+
 """

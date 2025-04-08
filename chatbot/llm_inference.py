@@ -34,5 +34,15 @@ def call_deepseek_model(risk_score: float, user_data: dict, user_prompt="I want 
     return response.choices[0].message.content
 
 if __name__ == "__main__":
-    result = call_deepseek_model("I want MEAT! AS MORE AS POSSIBLE!")
+    user_data = {
+            "Age": 99,
+            "Gender": 'male',
+            "Height": 1.7,
+            "Weight": 100,
+            "ActivityLevel": 'Very Active',
+            "Pregnancies": 0,
+            "Glucose": 99,
+            "BMI": 25.0
+        }
+    result = call_deepseek_model(0.9, user_data, "I want MEAT! AS MORE AS POSSIBLE!")
     print(result)
