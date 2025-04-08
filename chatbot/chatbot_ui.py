@@ -162,12 +162,12 @@ def handle_user_input(age, gender, height, weight, activity, pregnancies, glucos
             recipe_titles.append(title)
             recipe_bodies.append(content_md)
 
-        # 填充空数据直到 5 个
+        # padding empty data until 5
         while len(recipe_titles) < 5:
             recipe_titles.append("")
             recipe_bodies.append("")
 
-        # 将标题和正文分别打包成 (value, visible) 的形式
+        # pack title and content into (value, visible) format
         result_blocks = []
         for i in range(5):
             if recipe_titles[i].strip():
@@ -180,15 +180,15 @@ def handle_user_input(age, gender, height, weight, activity, pregnancies, glucos
                 show = False
 
             result_blocks.extend([
-                gr.update(value=title, visible=show),  # 标题
-                gr.update(value=content, visible=show),  # 内容
-                gr.update(visible=show)  # 组
+                gr.update(value=title, visible=show),  # title
+                gr.update(value=content, visible=show),  # content
+                gr.update(visible=show)  # group
             ])
             
         return [summary] + result_blocks
         
     except Exception as e:
-        # 错误情况下也要返回正确数量的空值
+        # even in error, return the correct number of empty values
         empty_updates = [gr.update(value="", visible=False) for _ in range(10)] + [gr.update(visible=False) for _ in range(5)]
         return [f"Error: {str(e)}"] + empty_updates
 
